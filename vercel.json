@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/v1/chat.js": {
+      "maxDuration": 30
+    },
+    "api/v1/chat/completions.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/v1/:path*", "destination": "/api/v1/:path*" },
+    { "source": "/chat/completions", "destination": "/api/v1/chat/completions" },
+    { "source": "/models", "destination": "/api/v1/models" },
+    { "source": "/usage", "destination": "/api/v1/usage" }
+  ]
+}
